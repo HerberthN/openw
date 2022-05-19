@@ -26,15 +26,15 @@ const PrevisaoItem = (props) => {
                 </View>
                   <View style={estilos.segundaLinha}>
                       <Text style={estilos.valor}> 
-                {props.previsao.item.main.temp_min}
+                {props.previsao.item.sys.sunrise}
                 </Text>
                       <Text style={estilos.valor}> 
-                {props.previsao.item.main.temp_max}
+                {props.previsao.item.sys.sunset}
                 </Text>
                       <Text style={estilos.valor}>
                 </Text>
                       <Text style={estilos.valor}>
-                {props.previsao.item.main.temp.humidity}
+                {props.previsao.item.main.temp.fells_like}
                 </Text>
             </View>
           </View>
