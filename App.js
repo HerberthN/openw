@@ -8,10 +8,16 @@ import {
   Keyboard 
   } from 'react-native';
 import PrevisaoItem from './components/PrevisaoItem';
+import{
+  PROTOCOL,
+  BASE_URL,
+  UNITS,
+  LANGUAGE,
+  APPID
+} from '@env'
 
 export default function App() {
-  const endpoint = "https://api.openweathermap.org/data/2.5/forecast?lang=pt&units=metric&q=";
-  const apiKey = '36e19a1e56b157520c4d7664682f416d';
+  const url = encodeURI(`${PROTOCOL}://${BASE_URL}?units=${UNITS}&cnt=${CNT}&lang=${LANGUAGE}&appid=${APPID}&q=${cidade}`)
 
   const [cidade, setCidade] = useState('');
   const capturarCidade = (cidade) =>{
@@ -22,7 +28,7 @@ export default function App() {
 
   const obtemPrevisoes = () =>{
     setPrevisoes([]);
-    const target = endpoint + cidade + "&appid=" + apiKey;
+    const target = url;
     console.log(target);
     fetch(target)
     .then((dados => dados.json()))
